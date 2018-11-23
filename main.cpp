@@ -8,10 +8,6 @@ SemaphoreHandle_t xGarfosSem[qtyFilo];
 SemaphoreHandle_t xSerial;
 
 void TaskFilosofos(void *pvParameters);
-/*void TaskFilosofos2(void *pvParameters);
-void TaskFilosofos3(void *pvParameters);
-void TaskFilosofos4(void *pvParameters);
-void TaskFilosofos5(void *pvParameters);*/
 
 void setup()
 {
@@ -64,11 +60,8 @@ void TaskFilosofos(void *parameter)
         
       }
       else
-        //xSemaphoreGive(xGarfosSem[x2]);
         xSemaphoreGive(xGarfosSem[x]);
     }
-    //else
-    //xSemaphoreGive(xGarfosSem[x]);
     if (xSemaphoreTake(xSerial, (TickType_t)portMAX_DELAY) == pdTRUE)
     {
       Serial.print("Filósofo ");
