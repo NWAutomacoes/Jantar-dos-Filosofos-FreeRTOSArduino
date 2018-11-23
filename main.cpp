@@ -2,7 +2,7 @@
 #include <Arduino_FreeRTOS.h>
 #include <semphr.h>
 
-#define qtyFilo 10
+#define qtyFilo 10 //Quantidade de filósofos
 
 SemaphoreHandle_t xGarfosSem[qtyFilo];
 SemaphoreHandle_t xSerial;
@@ -38,8 +38,7 @@ void TaskFilosofos(void *parameter)
   }
   else
     x2 = x + 1;
-
-  //(void)pvParameters;
+  
   while (1)
   {
     if (xSemaphoreTake(xGarfosSem[x], (TickType_t)0) == pdTRUE)
